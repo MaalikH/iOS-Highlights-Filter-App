@@ -1,3 +1,14 @@
 node_modules
+
+
+client/.angular/cache
+client/.sass-cache/
+client/connect.lock
+/client/coverage
+/client/libpeerconnection.log
+/client/testem.log
+/client/typings
+
 client/node_modules
-client/.angular
+client/npm-debug.log
+/client/yarn-error.log
