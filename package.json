@@ -1,0 +1,39 @@
+{
+  "name": "convert-highlights",
+  "version": "1.0.0",
+  "description": "Tool to convert apple book highlights to readable json ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "node --inspect index.js",
+    "start:dev-watch": "nodemon --inspect index.js",
+    "server": "nodemon --inspect index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "formidable": "^2.0.1",
+    "fotology-x": "^1.2.4",
+    "free-google-image-search": "^1.0.0",
+    "g-i-s": "^2.1.6",
+    "general-search-engine": "^1.4.1",
+    "glob": "^7.2.0",
+    "google-images": "^2.1.0",
+    "googlethis": "^1.2.7",
+    "images-scraper": "^6.4.0",
+    "lodash": "^4.17.21",
+    "node-html-parser": "^5.2.0",
+    "require-text": "0.0.1",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}

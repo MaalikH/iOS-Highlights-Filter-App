@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 mb-5 filter-panel">
+      <app-highlights-filter-panel
+        [filters]="filters"
+        [noBooksSelected]="noBooksSelected"
+        (selectClearBooksClick)="selectClearBooks($event)"
+        (removeFilterClick)="removeFilter($event)"
+        (toggleFilterClick)="toggleFilter($event)"
+        (filterHighlightsClick)="filterHighlights()"
+        (toggleChapterFilterClick)="toggleChapterFilter($event)"
+      >
+      </app-highlights-filter-panel>
+    </div>
+
+    <div class="col-md-9" *ngIf="filteredHighlights.length > 0">
+      <app-higlights-card
+        *ngFor="let highlight of paginatedArray"
+        [highlight]="highlight"
+      >
+      </app-higlights-card>
+      <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="filteredHighlights.length"
+        (pageChange)="paginateHighlights($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

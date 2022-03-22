@@ -1,0 +1,32 @@
+<div
+  class="card highlight-card mb-3"
+  [appCardHighlightColor]="highlight.colorCode"
+>
+  <div class="card-header">
+    <span>
+      <img *ngIf="highlight.cover" class="card-img" [src]="highlight.cover" />
+    </span>
+    <div class="header-info">
+      <span>
+        <h5 class="card-title">{{ highlight.title }}</h5>
+        <h6 class="card-subtitle mb-2">
+          {{ highlight.chapter }}
+        </h6>
+      </span>
+      <span>
+        <fa-icon
+          (click)="toggleFavorite(highlight)"
+          [icon]="faStar"
+          [ngClass]="
+            highlightsContainer.isFavorite(highlight)
+              ? 'isFavorite'
+              : 'notFavorite'
+          "
+        ></fa-icon>
+      </span>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{ highlight.quote }}</p>
+  </div>
+</div>

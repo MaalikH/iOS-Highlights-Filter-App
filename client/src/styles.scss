@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@use "@angular/material" as mat;
+@include mat.core();
+@import "~bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "PT Sans", sans-serif;
+  background-color: var(--pageBg);
+}
+
+:root {
+  --primaryColor: #4283e3;
+  --secondaryColor: #ccf1f6;
+  --textOnBackground: #212121;
+  --textOnSecondary: #757575;
+  --textOnPrimary: #ffffff;
+  --background: #b2ebf2;
+  --cardBackground: #ffffff;
+  --thirdColor: #0097a7;
+  --pageBg: #fcfdfe;
+
+  --colorCode0dark: #d32f2f;
+  --colorCode0light: #ffcdd2;
+  --colorCode0bg: #fefbfb;
+  --colorCode1dark: #388e3c;
+  --colorCode1light: #c8e6c9;
+  --colorCode1bg: #f9fcf9;
+  --colorCode2dark: #2196f3;
+  --colorCode2light: #e9f4fe;
+  --colorCode2bg: #fbfdff;
+  --colorCode3dark: #ffc107;
+  --colorCode3light: #ffecb3;
+  --colorCode3bg: #fffefa;
+  --colorCode4dark: #673ab7;
+  --colorCode4light: #d1c4e9;
+  --colorCode4bg: #fcfbfe;
+  --colorCode5dark: #c2185b;
+  --colorCode5light: #f8bbd0;
+  --colorCode5bg: #fefafc;
+
+  --warn: #d32f2f;
+}
+
+$cyan-palette: (
+  50: #e6f8fb,
+  100: #ccf1f6,
+  200: #b3ebf2,
+  300: #99e4ee,
+  400: #2196f3,
+  500: #318deb,
+  600: #4283e3,
+  700: #537adb,
+  800: #6371d2,
+  900: #7467ca,
+  // ... continues to 900
+  contrast:
+    (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: white,
+      // ... continues to 900
+    ),
+);
+
+$my-primary: mat.define-palette($cyan-palette, 500);
+$my-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+  )
+);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);

@@ -1,0 +1,203 @@
+@use "@angular/material" as mat;
+
+::ng-deep .mat-drawer-inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-container {
+  .select-clear-all-btns {
+    display: flex;
+    justify-content: end;
+    font-size: 12px;
+    margin-bottom: 12px;
+
+    .select-clear-all-btn {
+      height: 25px;
+      width: 25px;
+      line-height: 0px;
+      font-size: 10px;
+      padding: 10px 10px;
+    }
+
+    :last-child {
+      margin-left: 10px;
+    }
+  }
+
+  .selected-icon {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    border-radius: 50%;
+    color: var(--secondaryColor);
+    text-align: center;
+    background: var(--primaryColor);
+  }
+
+  .unselected-icon {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    border-radius: 50%;
+    color: lightgrey;
+    text-align: center;
+    background: grey;
+  }
+
+  .book-title {
+    width: 200px;
+    background-color: transparent;
+  }
+
+  .chapter-title {
+    width: 150px;
+    background-color: transparent;
+  }
+
+  .mat-drawer-container {
+    background-color: transparent;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .filter-chip {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mat-chip.color-chip {
+    display: flex;
+    width: 30%;
+  }
+
+  .mat-chip.mat-standard-chip {
+    background-color: var(--cardBackground);
+    border: 2px solid var(--primaryColor);
+  }
+
+  .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+    background-color: var(--secondaryColor);
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .mat-standard-chip:hover::after {
+    opacity: 0;
+  }
+
+  .mat-standard-chip:focus::after {
+    opacity: 0;
+  }
+
+  .filter-list-item-container {
+    width: 100%;
+  }
+
+  .filter-list-item-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+  }
+
+  .filter-item-sidenav {
+    width: 50px;
+    background: var(--warn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trash-list-item {
+    color: var(--textOnPrimary);
+  }
+
+  .filter-list {
+    width: 500px;
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    display: block;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .filter-box {
+    //padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .example-box:last-child {
+    border: none;
+  }
+
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.btn-group > .btn:first-child:not(.dropdown-toggle) {
+  border-top-left-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.btn-group > .btn:last-child:not(.dropdown-toggle) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+.btn:not(:first-child):not(.dropdown-toggle) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}

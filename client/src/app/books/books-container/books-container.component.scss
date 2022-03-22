@@ -1,0 +1,144 @@
+.selected {
+  border: 5px solid var(--primaryColor);
+}
+
+.book-card {
+  width: 10rem;
+  height: 15rem;
+  overflow: hidden;
+}
+
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 1rem;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+}
+
+.book-container {
+  display: flex;
+  justify-content: center;
+}
+
+.editable {
+  opacity: 0.3;
+}
+
+.book-selection-checkmark-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+}
+
+.book-img-input-container {
+  padding: 10px;
+}
+
+.books-selected-count {
+  color: var(--primaryColor);
+  margin-right: 10px;
+}
+
+.example-form {
+  position: absolute;
+}
+
+.img-container {
+  position: relative;
+  text-align: center;
+  color: var(--primaryColor);
+  font-weight: bold;
+  height: 100%;
+}
+
+.card-img-top {
+  height: 100%;
+}
+
+.book-display-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  height: 100%;
+  padding: 10px;
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .author {
+    font-size: 0.7rem;
+  }
+}
+/* Bottom left text */
+.overlay-text {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 80%;
+}
+
+.footer {
+  position: fixed;
+
+  padding: 20px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fffdfd;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    margin: 10px;
+  }
+}
+
+.close-selection-footer {
+  color: var(--primaryColor);
+}
+
+.book-checkmark-selected {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 10px;
+  padding: 7px;
+  border-radius: 50%;
+  color: var(--secondaryColor);
+  text-align: center;
+  background: var(--primaryColor);
+}
+
+.book-checkmark-unselected {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 10px;
+  padding: 7px;
+  border-radius: 50%;
+  color: var(--secondaryColor);
+  text-align: center;
+  background: lightgray;
+}
+
+@media (min-width: 1200px) {
+  .col-lg-custom {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}

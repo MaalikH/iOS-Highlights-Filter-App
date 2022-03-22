@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+    <!--Card Container-->
+    <div
+      *ngFor="let book of booksData; let i = index"
+      class="col-md-3 col-lg-custom mb-4 book-container"
+      [hidden]="book.ignore || !bookHasHighlights(book.title)"
+    >
+      <!--Card Div-->
+      <div
+        class="card book-card"
+        [ngClass]="book.isSelected ? 'selected' : ''"
+        style="width: 10rem"
+        (click)="selectBook(i)"
+      >
+        <div class="book-img-input-container" *ngIf="editImageActive">
+          <form>
+            <div class="form-group">
+              <input
+                (change)="URLchanged(i)"
+                type="email"
+                class="form-control"
+                id="bookCoverURL"
+                [(ngModel)]="book.cover"
+                placeholder="Cover URL"
+                name="URL"
+              />
+            </div>
+          </form>
+          <span>
+            <p class="card-title" maxlength="60">{{ book.title }}</p>
+            <p class="card-text" maxlength="40">{{ book.author }}</p>
+          </span>
+        </div>
+        <div
+          class="book-selection-checkmark-container"
+          *ngIf="!editImageActive"
+        >
+          <fa-icon
+            *ngIf="bookSelectionActive"
+            [ngClass]="
+              book.isSelected
+                ? 'book-checkmark-selected'
+                : 'book-checkmark-unselected'
+            "
+            [icon]="faCheck"
+          ></fa-icon>
+        </div>
+        <!--Card Image-->
+        <div class="img-container" *ngIf="!editImageActive">
+          <img
+            *ngIf="book.cover"
+            class="card-img-top"
+            [ngClass]="bookSelectionActive ? 'editable' : ''"
+            [src]="book.cover"
+            alt="Card image cap"
+          />
+          <div class="book-display-info" *ngIf="!book.cover">
+            <p class="title">{{ book.title }}</p>
+            <p class="author">{{ book.author }}</p>
+          </div>
+
+          <!--Overlay Text-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" *ngIf="bookSelectionActive">
+    <div>
+      <fa-icon
+        class="close-selection-footer"
+        [icon]="faChevronDown"
+        (click)="closeFooter()"
+      ></fa-icon>
+
+      <button
+        (click)="toggleImageEditActive()"
+        mat-raised-button
+        class="ml-5"
+        color="primary"
+      >
+        <span *ngIf="!editImageActive">
+          <fa-icon *ngIf="bookSelectionActive" [icon]="faCamera"></fa-icon
+        ></span>
+        <span *ngIf="editImageActive"> Save Book Covers</span>
+      </button>
+    </div>
+    <div>
+      <span class="books-selected-count"
+        >{{ getSelectedBooksCount().toString() }} Books Selected</span
+      >
+      <button mat-raised-button color="warn" (click)="ignoreBooks()">
+        Ignore
+      </button>
+      <button
+        mat-raised-button
+        class="ml-5"
+        color="primary"
+        (click)="getHighlightsFromBooks()"
+      >
+        Select
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,146 @@
+<ngb-accordion
+  class="filter-panel-category"
+  #acc="ngbAccordion"
+  activeIds="ngb-panel-0"
+>
+  <ngb-panel
+    *ngFor="let filterCategory of filters; let i = index"
+    [title]="filterCategory.displayName"
+    [disabled]="noBooksSelected && i !== 0"
+  >
+    <ng-template ngbPanelContent [ngSwitch]="filterCategory.name">
+      <div *ngSwitchCase="'title'" class="filter-container">
+        <div class="select-clear-all-btns">
+          <button
+            mat-raised-button
+            class="select-clear-all-btn"
+            color="primary"
+            (click)="onSelectClearBooksClick(true)"
+          >
+            Select All
+          </button>
+          <button
+            mat-raised-button
+            class="select-clear-all-btn"
+            color="primary"
+            (click)="onSelectClearBooksClick(false)"
+          >
+            Clear All
+          </button>
+        </div>
+        <div cdkDropList class="filter-list">
+          <div
+            class="filter-box"
+            *ngFor="let filterOption of filters[i].filterOptions; let j = index"
+          >
+            <mat-drawer-container class="filter-list-item-container" autosize>
+              <mat-drawer #drawer class="filter-item-sidenav" mode="side">
+                <fa-icon
+                  (click)="onRemoveFilterClick(i, j)"
+                  [icon]="faTrash"
+                  class="trash-list-item"
+                ></fa-icon>
+              </mat-drawer>
+
+              <div
+                class="filter-list-item-sidenav-content"
+                (swipe)="drawer.toggle()"
+              >
+                <span (click)="onToggleFilterClick(i, j)" class="book-title">{{
+                  filterOption.filterName
+                }}</span>
+                <fa-icon
+                  [class]="
+                    filterOption.isFiltered
+                      ? 'selected-icon'
+                      : 'unselected-icon'
+                  "
+                  [icon]="faCheck"
+                ></fa-icon>
+              </div>
+            </mat-drawer-container>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'colorCode'" class="filter-container">
+        <mat-chip-list
+          #chipList
+          [multiple]="true"
+          (change)="onFilterHighlightsClick()"
+          class="filter-chips"
+        >
+          <mat-chip
+            *ngFor="let filterOption of filters[i].filterOptions; let j = index"
+            class="color-chip"
+            [selected]="filterOption.isFiltered"
+            (click)="onToggleFilterClick(i, j)"
+            (removed)="onRemoveFilterClick(i, j)"
+            appChipHighlightColor
+            [filterName]="filterOption.filterName"
+            [filterType]="filterCategory.name"
+            [selectedHighlight]="filterOption.isFiltered"
+          >
+            <span *ngIf="filterCategory.name !== 'colorCode'">{{
+              filterOption.filterName
+            }}</span>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <div *ngSwitchCase="'chapter'" class="filter-container">
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+          <ngb-panel
+            *ngFor="let bookFilter of filters[0].filterOptions"
+            [cardClass]="
+              !bookFilter.isFiltered ? 'hide-book-chapters-panel' : ''
+            "
+            [title]="bookFilter.filterName"
+            [disabled]="
+              getChapterFiltersLength(
+                filters[i].filterOptions,
+                bookFilter.filterName
+              )
+            "
+          >
+            <ng-template ngbPanelContent>
+              <div cdkDropList class="filter-list">
+                <div
+                  class="filter-box"
+                  *ngFor="
+                    let filterOption of filterChaptersByTitle(
+                      filters[i].filterOptions,
+                      bookFilter.filterName
+                    );
+                    let j = index
+                  "
+                >
+                  <div class="filter-list-item-sidenav-content">
+                    <span
+                      (click)="onToggleChapterFilterClick(filterOption)"
+                      class="chapter-title"
+                      >{{
+                        filterOption.filterName !== null
+                          ? filterOption.filterName
+                          : "Unknown Chapter"
+                      }}</span
+                    >
+                    <fa-icon
+                      (click)="onToggleChapterFilterClick(filterOption)"
+                      [class]="
+                        filterOption.isFiltered
+                          ? 'selected-icon'
+                          : 'unselected-icon'
+                      "
+                      [icon]="faCheck"
+                    ></fa-icon>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
