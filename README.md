@@ -20,7 +20,7 @@ A user can ignore a book by selecting the preferred book and clicking the ignore
 
 Currently the app only displays the books in a user's database with highlights (annotations). 
 
-![Alt text](screenshots/home.jpg?raw=true "Home")
+![Alt text](screenshots/home.png?raw=true "Home")
 
 
 ## Highlights
