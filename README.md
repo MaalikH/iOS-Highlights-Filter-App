@@ -10,7 +10,6 @@ npm i
 cd /client
 npm i 
 ```
-2. Books
 
 ## Books
 Select books by clicking on the preferred book cover. The multi-select feature will show, allowing the user to pick multiple books.   
@@ -20,6 +19,9 @@ By default, books come without the cover image file. To edit book covers the use
 A user can ignore a book by selecting the preferred book and clicking the ignore book. Similar to the book covers, the ignored books are saved in a local JSON file. This array is checked when loading the books, and determines the isIgnored flag that controls if the book is displayed. 
 
 Currently the app only displays the books in a user's database with highlights (annotations). 
+
+![Alt text](screenshots/home.jpg?raw=true "Home")
+
 
 ## Highlights
 After books are selected the highlights array is fetched from the server. The array is populated with all highlights of corresponding books. If highlights page is accessed through navbar then all user highlights will be populated.
