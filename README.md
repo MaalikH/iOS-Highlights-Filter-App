@@ -21,14 +21,18 @@ A user can ignore a book by selecting the preferred book and clicking the ignore
 Currently the app only displays the books in a user's database with highlights (annotations). 
 
 ![Alt text](screenshots/home.png?raw=true "Home")
+![Alt text](screenshots/home2.png?raw=true "Home2")
+![Alt text](screenshots/home3.png?raw=true "Home3")
 
 
 ## Highlights
+![Alt text](screenshots/highlights.png?raw=true "Highlights")
+![Alt text](screenshots/highlights2.png?raw=true "Highlights2")
+
 After books are selected the highlights array is fetched from the server. The array is populated with all highlights of corresponding books. If highlights page is accessed through navbar then all user highlights will be populated.
 
 The highlights component has a dynamic border/bg that is controlled by the 'CardHighlightColorDirective'  
 
-## Filters
 Highlights can be filtered using the filters-panel to the left of the highlight cards.
 
 Users can filter by the highlights by book title, highlight color, or book chapter. 
@@ -36,6 +40,9 @@ Users can filter by the highlights by book title, highlight color, or book chapt
 The filter chips used in Colors filter category make use of MAT-chips & ChipHighlightColorDirective
 
 ## Favorites
+
+![Alt text](screenshots/favorites.png?raw=true "Favorites")
+
 A user can favorite or un-favorite a highlight by selecting the star icon in the top right corner of the preferred highlight.
 Favorites are saved to JSON file upon click. If the favorite doesn’t exist the server will add to the JSON file, if the favorite does exist the highlight will be purged from the JSON array. 
  
