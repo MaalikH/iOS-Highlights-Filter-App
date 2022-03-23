@@ -3,12 +3,17 @@ Angular / Node.JS app that extracts MacOS highlights from Mac Database for displ
 
 ## Installation
 
-Install dependencies for Node & Angular applications
+First install dependencies for Node & Angular applications
 
 ```bash
 npm i
 cd /client
 npm i 
+```
+
+To start the local server and front end application run the following command from the root directory.
+```bash
+npm run dev
 ```
 
 ## Books
@@ -24,11 +29,7 @@ Currently the app only displays the books in a user's database with highlights (
 ![Alt text](screenshots/home2.png?raw=true "Home2")
 ![Alt text](screenshots/home3.png?raw=true "Home3")
 
-
 ## Highlights
-![Alt text](screenshots/highlights.png?raw=true "Highlights")
-![Alt text](screenshots/highlights2.png?raw=true "Highlights2")
-
 After books are selected the highlights array is fetched from the server. The array is populated with all highlights of corresponding books. If highlights page is accessed through navbar then all user highlights will be populated.
 
 The highlights component has a dynamic border/bg that is controlled by the 'CardHighlightColorDirective'  
@@ -39,13 +40,15 @@ Users can filter by the highlights by book title, highlight color, or book chapt
 
 The filter chips used in Colors filter category make use of MAT-chips & ChipHighlightColorDirective
 
+![Alt text](screenshots/highlights.png?raw=true "Highlights")
+![Alt text](screenshots/highlights2.png?raw=true "Highlights2")
+
 ## Favorites
+A user can favorite or un-favorite a highlight by selecting the star icon in the top right corner of the preferred highlight.
+Favorites are saved to JSON file upon click. If the favorite doesn’t exist the server will add to the JSON file, if the favorite does exist the highlight will be purged from the JSON array. 
 
 ![Alt text](screenshots/favorites.png?raw=true "Favorites")
 
-A user can favorite or un-favorite a highlight by selecting the star icon in the top right corner of the preferred highlight.
-Favorites are saved to JSON file upon click. If the favorite doesn’t exist the server will add to the JSON file, if the favorite does exist the highlight will be purged from the JSON array. 
- 
 ## Future
 Future focuses will be on a mobile app using the Ionic framework. Future features may include a modal to import books from MacOS, the kindle app, or from an HTML file.
 Will log known issues soon. 
