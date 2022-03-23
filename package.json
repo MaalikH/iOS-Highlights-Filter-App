@@ -27,9 +27,9 @@
     "googlethis": "^1.2.7",
     "images-scraper": "^6.4.0",
     "lodash": "^4.17.21",
-    "node-html-parser": "^5.2.0",
+    "node-html-parser": "^5.3.3",
     "require-text": "0.0.1",
-    "sqlite": "^4.0.23",
+    "sqlite": "^4.0.25",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
